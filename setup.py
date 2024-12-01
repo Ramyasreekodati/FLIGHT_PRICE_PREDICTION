@@ -8,7 +8,7 @@ __version__ = "0.0.0"
 
 REPO_NAME = "FLIGHT_PRICE_PREDICTION"
 AUTHOR_USER_NAME = "Ramyasreekodati"
-SRC_REPO = "mlflight"
+SRC_REPO = "Flight_price"
 AUTHOR_EMAIL = "kodatiramyasree123@gmail.com"
 
 
