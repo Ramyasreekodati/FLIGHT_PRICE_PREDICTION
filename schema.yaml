@@ -1,0 +1,24 @@
+COLUMNS:
+
+  Airline              :  int64  
+  Destination          :  int64  
+  Duration             :  int64  
+  Total_Stops          :  int64  
+  Price                :  float64
+  Date_of_Journey_day  :  int64  
+  Date_of_Journey_month:  int64  
+  Dep_Time_hour        :  int64  
+  Dep_Time_minute      :  int64  
+  Arrival_Time_hour    :  int64  
+  Arrival_Time_minute  :  int64  
+  Duration_hour        :  int64  
+  Duration_minutes     :  int64  
+  source_Banglore      :  int64  
+  source_Kolkata       :  int64  
+  source_Delhi         :  int64  
+  source_Chennai       :  int64  
+  source_Mumbai        :  int64
+
+TARGET_COLUMN:
+  name: Price
+  

@@ -1,0 +1,5 @@
+RandomForestRegressor:
+  max_depth : 30,
+  max_features : 'sqrt', 
+  min_samples_split : 10,
+  n_estimator : 400
