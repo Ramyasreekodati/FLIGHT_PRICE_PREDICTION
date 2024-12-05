@@ -1,0 +1,239 @@
+body, html {
+    font-family: Arial, sans-serif; /* Sets the default font */
+    background-image: url('/static/webimages/image3.png'); /* Sets the background image */
+    background-size: cover; /* Ensures the image covers the entire screen */
+    background-position: center; /* Centers the background image */
+    background-attachment: fixed; /* Fixes the image in place */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    color: #070000fe; /* Default text color */
+    width: 100%; /* Ensures full width */
+    margin: 0; /* Removes default browser margin */
+    display: flex; /* Makes body a flex container */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    height: 100vh; /* Full screen height */
+    background-color: #f0f0f0; /* Fallback background color */
+}
+/* Header Styles */
+header {
+    background-color: #004d7a; /* Header background color */
+    color: white; /* Header text color */
+    padding: 20px; /* Padding around text */
+    text-align: center; /* Centers header text */
+    font-size: 1.5rem; /* Larger text size */
+    font-weight: bold; /* Bold header text */
+}
+
+/* Container Styles */
+.container {
+    margin-top: 2%; /* Keeps space above the white box */
+    margin-bottom: 30px; /* Keeps space below unchanged */
+    padding-top: 20px; /* Reduced padding inside the top of the box */
+    padding-bottom: 20px; /* Keeps the padding at the bottom of the box */
+    margin: 30px auto; /* Centers the container with margin */
+    padding-left: 50px; /* Adjust padding left */
+    padding-right: 50px; /* Adjust padding right */
+    max-width: 800px; /* Maximum width for the container */
+    background-color: rgba(255, 255, 255, 0.94); /* Semi-transparent white background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.364); /* Subtle shadow effect */
+    text-align: center; /* Centers text inside the container */
+    margin-left: 30px; /* Extra margin to the left */
+    z-index: 2; /* Ensures it appears above background elements */
+    background-size: center;
+    height: auto; /* Allows the box height to adjust based on content */
+    max-height: 90vh; /* Limits the height to 90% of the viewport */
+    overflow-y: auto; /* Adds scroll if content exceeds the max-height */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+/* Form Styles */
+form {
+    width: 100%; /* Makes the form take the full container width */
+    display: flex; /* Flexbox layout for easy alignment */
+    flex-direction: column; /* Stacks form elements vertically */
+}
+.form-group {
+    margin-bottom: 20px; /* Adds space between fields */
+}
+
+label {
+    display: block; /* Makes the label take full width */
+    margin-bottom: 8px; /* Adds space below the label */
+    font-weight: bold; /* Bold text for the label */
+    font-size: 14px; /* Sets a standard font size */
+    color: #555; /* Neutral grey color for labels */
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"] { /* Includes the 'Date of Journey' field */
+    width: 97%; /* Full width of the container */
+    padding: 12px; /* Padding for comfort */
+    border: 1px solid #ddd; /* Light grey border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Standard font size */
+    transition: border-color 0.3s; /* Smooth border color change */
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus { /* Ensures focus styling applies to 'Date' fields */
+    border-color: #007bff; /* Blue border when focused */
+    outline: none; /* Removes the default browser outline */
+}
+
+/* Button Styles */
+button {
+    display: inline-block; /* Makes the button inline */
+    width: 100%; /* Full width of the container */
+    padding: 15px; /* Padding for a large button */
+    background: #007bff; /* Blue background */
+    color: white; /* White text */
+    border: none; /* Removes default border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Standard font size */
+    cursor: pointer; /* Changes cursor to pointer */
+    transition: background 0.3s; /* Smooth background color change */
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Signup and Signin Pages */
+.signup-page {
+    background: url('/static/webimages/image1.png') no-repeat center center fixed;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; 
+    color: white;
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+    background-color: #f0f0f0; /* Light grey as fallback */
+
+}
+
+.signin-page {
+    background: url('/static/webimages/image1.png') no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 0; 
+    color: white;
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.signup-page .container{
+    width: 100%;
+    max-width: 500px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+
+.signin-page .container {
+    width: 100%;
+    max-width: 500px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Index Page */
+.index-page {
+    background: url('/static/webimages/image2.png') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Error Message */
+#error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+/* Table Styles (For result page) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background: #f8f9fa;
+    color: #555;
+}
+
+table tr:nth-child(even) {
+    background: #f3f4f6;
+}
+
+/* Result Prediction Page */
+.result-page {
+    background: url('/static/webimages/image3.png') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    table th, table td {
+        padding: 10px;
+    }
+}
+

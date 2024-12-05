@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px 0px #ccc;
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select, button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Flight Price Prediction</h1>
+        <form action="/predict" method="POST">
+
+            <link rel="stylesheet" href="styles.css"> 
+            
+            <label for="Date_of_Journey">Date of Journey</label>
+            <input type="date" id="Date_of_Journey" name="Date_of_Journey" required>
+            
+            <label for="Dep_Time">Departure Time:</label>
+            <input type="time" id="Dep_Time" name="Dep_Time" required>
+
+            <label for="Arrival_Time">Arrival Time:</label>
+            <input type="time" id="Arrival_Time" name="Arrival_Time" required>
+
+            <label for="Duration">Duration (hh mm):</label>
+            <input type="text" id="Duration" name="Duration" placeholder="e.g., 2 30 for 2 hours 30 minutes" required>
+
+            <label for="Airline">Airline:</label>
+            <select id="Airline" name="Airline" required>
+                <option value="Trujet">Trujet</option>
+                <option value="SpiceJet">SpiceJet</option>
+                <option value="Air Asia">Air Asia</option>
+                <option value="IndiGo">IndiGo</option>
+                <option value="GoAir">GoAir</option>
+                <option value="Vistara">Vistara</option>
+                <option value="Vistara Premium economy">Vistara Premium economy</option>
+                <option value="Air India">Air India</option>
+                <option value="Multiple carriers">Multiple carriers</option>
+                <option value="Multiple carriers Premium economy">Multiple carriers Premium economy</option>
+                <option value="Jet Airways">Jet Airways</option>
+                <option value="Jet Airways Business">Jet Airways Business</option>
+            </select>
+
+            <label for="Source">Source:</label>
+            <select id="Source" name="Source" required>
+                <option value="Banglore">Banglore</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Mumbai">Mumbai</option>
+            </select>
+
+            <label for="Destination">Destination:</label>
+            <select id="Destination" name="Destination" required>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Cochin">Cochin</option>
+            </select>
+
+            <label for="Total_Stops">Total Stops:</label>
+            <select id="Total_Stops" name="Total_Stops" required>
+                <option value="non-stop">Non-stop</option>
+                <option value="1 stop">1 stop</option>
+                <option value="2 stops">2 stops</option>
+                <option value="3 stops">3 stops</option>
+                <option value="4 stops">4 stops</option>
+            </select>
+
+            <button type="submit">Predict Price</button>
+        </form>
+    </div>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</body>
+</html>
