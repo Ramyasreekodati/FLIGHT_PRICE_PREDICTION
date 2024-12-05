@@ -1,8 +1,8 @@
-gunicorn
+pywinpty
 pandas
 notebook
 numpy
-scikit-learn
+scikit-learn==1.3.2
 matplotlib
 seaborn
 python-box==6.0.2
