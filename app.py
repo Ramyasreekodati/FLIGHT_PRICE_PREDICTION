@@ -3,12 +3,12 @@ import pandas as pd
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from datetime import datetime
 import pickle
-
+import logging
 app = Flask(__name__, static_folder='project_folder/static', template_folder='project_folder/templates')
 
 app.secret_key = 'your_secret_key'
 
-
+logging.basicConfig(level=logging.DEBUG)
 # Update model_path to the correct absolute path
 model_path = r'F:\end_to_end_flight_price_prediction\FLIGHT_PRICE_PREDICTION\rf_random.pk1'
 
@@ -34,7 +34,7 @@ def predict():
         return redirect(url_for("signin"))
     
     try:
-        print(request.form) 
+        
         # Extract features from the form using .get() to avoid KeyError
         journey_date = request.form.get("Date_of_Journey")
         dep_time = request.form.get("Dep_Time")
@@ -122,7 +122,7 @@ def predict():
         return render_template("result.html", prediction=prediction[0])
 
     except Exception as e:
-        print(f"Error during prediction: {e}")
+        logging.error(f"Error during prediction: {e}")
         return jsonify({"error": "Something went wrong"}), 500
 
 
