@@ -9,8 +9,13 @@ app = Flask(__name__, static_folder='project_folder/static', template_folder='pr
 app.secret_key = 'your_secret_key'
 
 # Load pre-trained model and scalers (update with your actual model and scaler paths)
-model = pickle.load(open(r'F:\end_to_end_flight_price_prediction\FLIGHT_PRICE_PREDICTION\flight_model.pkl', 'rb'))
+model_path = os.path.join(os.getcwd(), 'flight_model.pkl')
+if not os.path.exists(model_path):
+    raise FileNotFoundError(f"Model file not found at {model_path}")
 
+# Load the model
+with open(model_path, 'rb') as file:
+    model = pickle.load(file)
 
 # Route for home page
 @app.route("/")
