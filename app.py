@@ -11,7 +11,7 @@ app.secret_key = 'your_secret_key'
 logging.basicConfig(level=logging.DEBUG)
 # Update model_path to the correct absolute path
 import pickle
-model_path = r'F:\end_to_end_flight_price_prediction\FLIGHT_PRICE_PREDICTION\rf_random.pk1'
+
 model_path = os.path.join(os.getcwd(), 'models', 'rf_random.pk1')
 
 # Check if the model file exists at the specified path
