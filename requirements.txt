@@ -1,4 +1,4 @@
-pywin32
+gunicorn
 pandas
 notebook
 numpy
