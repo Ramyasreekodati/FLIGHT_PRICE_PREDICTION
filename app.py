@@ -4,27 +4,31 @@ from flask import Flask, render_template, request, redirect, url_for, session, j
 from datetime import datetime
 import pickle
 import logging
+import warnings
 app = Flask(__name__, static_folder='project_folder/static', template_folder='project_folder/templates')
 
 app.secret_key = 'your_secret_key'
 
 
+warnings.filterwarnings("ignore", category=UserWarning, module='sklearn')
 
-
+# Configure logging
 logging.basicConfig(level=logging.DEBUG)
+
+# Define the model file path
+model_path = r'F:\end_to_end_flight_price_prediction\FLIGHT_PRICE_PREDICTION\rf_random.pkl'
 
 # Load the model
 try:
-    with open(r'F:\end_to_end_flight_price_prediction\FLIGHT_PRICE_PREDICTION\rf_random.pkl', 'rb') as file:
-        model = pickle.load(file)
-    print("Model loaded successfully")
+    with open(model_path, 'rb') as file:
+        model = pickle.load(file)  # Load the serialized model
+    logging.info("Model loaded successfully.")
 except FileNotFoundError as e:
     logging.error(f"Model file not found: {e}")
     raise
 except Exception as e:
     logging.error(f"An error occurred while loading the model: {e}")
     raise
-
 
 
 
@@ -182,4 +186,4 @@ def logout():
 
 # Main function to run the app
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=2021, debug=True)
+    app.run(host="0.0.0.0", port=2023, debug=True)
