@@ -8,13 +8,23 @@ app = Flask(__name__, static_folder='project_folder/static', template_folder='pr
 
 app.secret_key = 'your_secret_key'
 
-logging.basicConfig(level=logging.DEBUG)
-# Update model_path to the correct absolute path
-import pickle
 
-with open(r'F:\end_to_end_flight_price_prediction\FLIGHT_PRICE_PREDICTION\rf_random.pkl', 'rb') as file:
-    model = pickle.load(file)
+
+
+logging.basicConfig(level=logging.DEBUG)
+
+# Load the model
+try:
+    with open(r'F:\end_to_end_flight_price_prediction\FLIGHT_PRICE_PREDICTION\rf_random.pkl', 'rb') as file:
+        model = pickle.load(file)
     print("Model loaded successfully")
+except FileNotFoundError as e:
+    logging.error(f"Model file not found: {e}")
+    raise
+except Exception as e:
+    logging.error(f"An error occurred while loading the model: {e}")
+    raise
+
 
 
 
