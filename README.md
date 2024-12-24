@@ -67,7 +67,7 @@ AWS-CICD-Deployment-with-Github-Actions
 2. AmazonEC2FullAccess
 
 3. Create ECR repo to store/save docker image
-- Save the URI: 890742580095.dkr.ecr.us-east-1.amazonaws.com/flightprice
+- Save the URI: 890742580095.dkr.ecr.us-east-1.amazonaws.com/mlflight
 
 4. Create EC2 machine (Ubuntu)
 
@@ -99,5 +99,5 @@ AWS_SECRET_ACCESS_KEY= ***********
 AWS_REGION = us-east-1
 
 AWS_ECR_LOGIN_URI = 8907****0095.dkr.ecr.us-east-1.amazonaws.com
-ECR_REPOSITORY_NAME = flightprice
+ECR_REPOSITORY_NAME = mlflight
 
