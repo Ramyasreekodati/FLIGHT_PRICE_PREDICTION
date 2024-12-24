@@ -61,7 +61,8 @@ jobs:
 
   continuous-deployment:
     needs: build-and-push-ecr-image
-    runs-on: Self-hosted
+    runs-on: ubuntu-22.04
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
