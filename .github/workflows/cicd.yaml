@@ -61,7 +61,7 @@ jobs:
 
   continuous-deployment:
     needs: build-and-push-ecr-image
-    runs-on: self-hosted
+    runs-on: Self-hosted
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
