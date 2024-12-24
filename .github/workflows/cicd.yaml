@@ -75,6 +75,16 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Verify Docker Login
+        run: docker info
+
+      - name: Debug ECR URI
+        run: echo "Using ECR URI: ${{ secrets.AWS_ECR_LOGIN_URI }}/${{ secrets.ECR_REPOSITORY_NAME }}:latest"
+
       - name: Clean Up Previous Containers
         run: |
           docker ps -q --filter "name=cnncls" | grep -q . && docker stop cnncls && docker rm cnncls || true
