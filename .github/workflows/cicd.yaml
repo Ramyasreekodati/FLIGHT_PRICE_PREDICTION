@@ -83,8 +83,8 @@ jobs:
         run: docker info
 
       - name: Debug ECR URI
-        run: echo "Using ECR URI: ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY_NAME }}:latest"
-
+        run: |
+          echo "Using ECR URI: ${ECR_REGISTRY}/${{ secrets.ECR_REPOSITORY_NAME }}:latest"
 
       - name: Clean Up Previous Containers
         run: |
@@ -92,7 +92,7 @@ jobs:
 
       - name: Pull Latest Image
         run: |
-          docker pull ${{ secrets.AWS_ECR_LOGIN_URI }}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
+          docker pull ${ECR_REGISTRY}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
 
       - name: Run Docker Image to Serve Users
         run: |
@@ -100,7 +100,7 @@ jobs:
             -e AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} \
             -e AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} \
             -e AWS_REGION=${{ secrets.AWS_REGION }} \
-            ${{ secrets.AWS_ECR_LOGIN_URI }}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
+            ${ECR_REGISTRY}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
 
       - name: Clean Up Previous Images
         run: |
