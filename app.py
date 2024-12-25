@@ -16,7 +16,8 @@ warnings.filterwarnings("ignore", category=UserWarning, module='sklearn')
 logging.basicConfig(level=logging.DEBUG)
 
 # Define the model file path
-model_path = r'F:\end_to_end_flight_price_prediction\FLIGHT_PRICE_PREDICTION\rf_random.pkl'
+model_path = os.path.join(os.path.dirname(__file__), 'rf_random.pkl')
+
 
 # Load the model
 try:
