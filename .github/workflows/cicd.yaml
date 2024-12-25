@@ -52,15 +52,9 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
 
       - name: Build, Tag, and Push Image to Amazon ECR
-        id: build-image
-        env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY_NAME }}
-          IMAGE_TAG: latest
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_ENV
+          docker build -t ${{ secrets.AWS_ECR_LOGIN_URI }}/${{ secrets.ECR_REPOSITORY_NAME }}:latest .
+          docker push ${{ secrets.AWS_ECR_LOGIN_URI }}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
 
   continuous-deployment:
     name: Continuous Deployment
@@ -86,7 +80,7 @@ jobs:
 
       - name: Debug ECR URI
         run: |
-          echo "Using ECR URI: ${ECR_REGISTRY}/${{ secrets.ECR_REPOSITORY_NAME }}:latest"
+          echo "Using ECR URI: ${{ secrets.AWS_ECR_LOGIN_URI }}/${{ secrets.ECR_REPOSITORY_NAME }}:latest"
 
       - name: Clean Up Previous Containers
         run: |
@@ -94,7 +88,7 @@ jobs:
 
       - name: Pull Latest Image
         run: |
-          docker pull ${ECR_REGISTRY}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
+          docker pull ${{ secrets.AWS_ECR_LOGIN_URI }}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
 
       - name: Run Docker Image to Serve Users
         run: |
@@ -102,7 +96,7 @@ jobs:
             -e AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} \
             -e AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} \
             -e AWS_REGION=${{ secrets.AWS_REGION }} \
-            ${ECR_REGISTRY}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
+            ${{ secrets.AWS_ECR_LOGIN_URI }}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
 
       - name: Clean Up Previous Images
         run: |
