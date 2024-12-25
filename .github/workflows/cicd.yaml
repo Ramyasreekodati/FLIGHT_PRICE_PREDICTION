@@ -28,7 +28,7 @@ jobs:
   build-and-push-ecr-image:
     name: Continuous Delivery
     needs: integration
-    runs-on: ubuntu-22.04
+    runs-on: self-hosted
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -63,7 +63,7 @@ jobs:
   continuous-deployment:
     name: Continuous Deployment
     needs: build-and-push-ecr-image
-    runs-on: ubuntu-22.04
+    runs-on: self-hosted
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
