@@ -35,7 +35,9 @@ jobs:
 
       - name: Install Utilities
         run: |
-          sudo apt-get update
+          sudo rm -f /var/lib/dpkg/lock-frontend
+          sudo rm -f /var/lib/apt/lists/lock
+          sudo apt-get update || (sleep 10 && sudo apt-get update)
           sudo apt-get install -y jq unzip
 
       - name: Configure AWS Credentials
