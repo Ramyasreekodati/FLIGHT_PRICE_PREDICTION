@@ -17,10 +17,6 @@ logging.basicConfig(level=logging.DEBUG)
 
 # Define the model file path
 model_path = os.path.join(os.path.dirname(__file__), 'rf_random.pkl')
-<<<<<<< HEAD
-
-=======
->>>>>>> e9d8dd4 (Add app.py)
 
 # Load the model
 try:
